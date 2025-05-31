@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Background animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #2b5876, #4e4376, #1f1c2c, #8e44ad);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glass Box */
+.box {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  animation: fadeIn 1s ease;
+  color: #fff;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+/* Input, Select, Button - Fully Centered */
+input, select, button {
+  width: 100%;
+  max-width: 320px;
+  padding: 14px;
+  margin: 12px auto;
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+input::placeholder {
+  color: #eee;
+}
+
+input:focus, select:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid #00ffe0;
+}
+
+/* Neon Button */
+button {
+  margin-top: 15px;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background: #00ffe0;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 12px #00ffe0, 0 0 30px #00ffe0;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ffe0, 0 0 50px #00ffe0;
+}
+
+/* Result */
+#result {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  animation: bounceIn 0.6s ease;
+  color: #00ffe0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
