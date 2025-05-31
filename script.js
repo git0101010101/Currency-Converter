@@ -1,4 +1,10 @@
-async function convert() {
+const exchangeRates = {
+  USD: { INR: 83.2, EUR: 0.92 },
+  INR: { USD: 0.012, EUR: 0.011 },
+  EUR: { USD: 1.09, INR: 90.5 }
+};
+
+function convert() {
   const amount = parseFloat(document.getElementById("amount").value);
   const from = document.getElementById("from").value;
   const to = document.getElementById("to").value;
@@ -9,21 +15,12 @@ async function convert() {
     return;
   }
 
-  try {
-    const response = await fetch(https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_plT2fwErpPtTLhgscRp2DJaRuMvLNjFfZLKlikhl&base_currency=${from}&currencies=${to});
-    const data = await response.json();
-    const rate = data.data[to];
+  const rate = exchangeRates[from][to];
+  const converted = (amount * rate).toFixed(2);
+  resultDiv.innerText = `Result: ${converted} ${to}`;
 
-    const converted = (amount * rate).toFixed(2);
-    resultDiv.innerText = Result: ${converted} ${to};
-
-    // Trigger bounce animation again
-    resultDiv.style.animation = "none";
-    void resultDiv.offsetWidth;
-    resultDiv.style.animation = "bounceIn 0.6s ease";
-
-  } catch (error) {
-    resultDiv.innerText = "Error fetching exchange rate!";
-    console.error("API Error:", error);
-  }
+  // trigger bounce animation again
+  resultDiv.style.animation = "none";
+  void resultDiv.offsetWidth;
+  resultDiv.style.animation = "bounceIn 0.6s ease";
 }
